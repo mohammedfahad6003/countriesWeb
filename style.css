@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Nunito, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-inline: 32px;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  padding-inline: 32px;
+}
+
+.heading {
+  font-weight: 800;
+}
+
+.modeIcon {
+  padding-left: 8px;
+}
+
+.countriesContainer {
+  margin-inline: auto;
+  margin-top: 32px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.countryCard {
+  display: inline-block;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    margin-block: 8px;
+    font-size: 14px;
+  }
+
+  .cardContent {
+    padding-inline: 16px;
+    padding-bottom: 24px;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+    margin-block: 16px;
+  }
+}
+
+.countryCard:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 525px) {
+  .heading {
+    font-size: 16px;
+  }
+
+  .colorMode {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    display: block;
+    text-align: center;
+  }
+  .colorMode {
+    padding: 0px 0px 16px;
+  }
+}
