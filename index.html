@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Countries Details</title>
+    <title>Anywhere around the world</title>
+    <link rel="icon" href="./Images/Globe File.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800"
@@ -22,16 +23,40 @@
 
   <body>
     <header>
-      <h2 class="heading">Anywhere around the world</h2>
+      <h2 class="heading"><img src="./Images/Globe File.svg" class="rotating"/>Anywhere around the world</h2>
       <div class="colorMode">
-        <i class="fa-solid fa-moon"></i><i class="fa-regular fa-moon"></i
-        ><span class="modeIcon">DarkMode</span>
+        <i class=" fa-solid fa-moon"></i><span class="modeIcon">Dark Mode</span>
       </div>
     </header>
-    <main>
-      <div class="countriesContainer">
 
+    <main>
+      <div class="searchFilterContainer">
+        <div class="searchContainer">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search for a country...">
+          <i class="crossIcon fa-solid"></i>
+        </div>
+        <div class="filterBoxContainer">
+          <select class="filterContainer">
+            <option value="FilterByRegion" hidden>Filter By Region</option>
+            <option value="Africa">Africa</option>
+            <option value="America">America</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
+          </select>
+          <i class="filterCrossIcon fa-solid"></i>
+        </div>
+       
+      </div>
+      <div class="countriesContainer">
       </div>
     </main>
+
+    <footer>
+      <p class="motivationQuote">“Move one step ahead, today!”</p>
+  
+      <p class="madeWith">Made with ❤️ by Mohammed Fahad</p>
+    </footer>
   </body>
 </html>

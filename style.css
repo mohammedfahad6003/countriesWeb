@@ -3,8 +3,25 @@
 }
 
 body {
+  --background-color: white;
+  --text-color: black;
+  --elements-color: white;
   margin: 0;
   font-family: Nunito, sans-serif;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark {
+  --background-color: hsl(207, 26%, 17%);
+  --text-color: white;
+  --elements-color: hsl(209, 23%, 22%);
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 header {
@@ -12,16 +29,35 @@ header {
   align-items: center;
   justify-content: space-between;
   margin-inline: auto;
-  padding-inline: 32px;
+  padding-inline: 64px;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);
+  background-color: var(--elements-color);
 }
 
 main {
-  padding-inline: 32px;
+  padding-inline: 64px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.colorMode {
+  cursor: pointer;
 }
 
 .heading {
   font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .modeIcon {
@@ -29,17 +65,11 @@ main {
 }
 
 .countriesContainer {
-  margin-inline: auto;
   margin-top: 32px;
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
   justify-content: space-around;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .countryCard {
@@ -50,25 +80,32 @@ a {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  background-color: var(--elements-color);
 
   img {
     width: 100%;
+    height: 150px;
+    object-fit: cover;
   }
 
   p {
     margin-block: 8px;
     font-size: 14px;
   }
+}
 
-  .cardContent {
-    padding-inline: 16px;
-    padding-bottom: 24px;
-  }
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+  padding-inline: 16px;
+  padding-bottom: 24px;
+}
 
-  .cardTitle {
-    font-size: 22px;
-    margin-block: 16px;
-  }
+.cardTitle {
+  font-size: 22px;
+  margin-block: 16px;
 }
 
 .countryCard:hover {
@@ -76,13 +113,168 @@ a {
   box-shadow: 0 0 16px 0px rgba(0, 0, 0, 0.2);
 }
 
+.searchFilterContainer {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchContainer {
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  padding-inline: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  color: #999;
+  position: relative;
+  color: var(--text-color);
+  background-color: var(--elements-color);
+
+  input {
+    border: none;
+    outline: none;
+    padding: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--elements-color);
+  }
+}
+
+.crossIcon {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.searchContainer input::placeholder {
+  color: #999;
+}
+
+.filterBoxContainer {
+  position: relative;
+}
+
+.filterContainer {
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  padding: 16px 24px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  color: #3e3e3e;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="%233e3e3e" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
+    no-repeat right 12px center;
+  background-size: 20px;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--elements-color);
+}
+
+.filterContainer option {
+  border: none;
+  border-radius: 0;
+  padding: 12px;
+  background-color: white;
+  color: #3e3e3e;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--elements-color);
+}
+
+.filterContainer:focus {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.filterCrossIcon {
+  position: absolute;
+  right: 35px;
+  top: 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  header {
+    padding-inline: 32px !important;
+  }
+
+  .heading {
+    img {
+      margin-right: 6px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .searchFilterContainer {
+    flex-direction: column;
+    align-items: center;
+
+    .filterContainer {
+      margin-top: 24px;
+    }
+  }
+
+  .filterCrossIcon {
+    top: 40px;
+  }
+}
+
 @media (max-width: 525px) {
   .heading {
+    justify-content: center;
     font-size: 16px;
+
+    img {
+      width: 14px;
+      height: 14px;
+    }
   }
 
   .colorMode {
     font-size: 12px;
+  }
+
+  .countryCard {
+    width: 220px;
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .cardTitle {
+    font-size: 16px;
+    margin-block: 12px;
+  }
+
+  .cardContent {
+    padding-inline: 14px;
+    padding-bottom: 18px;
+  }
+
+  .searchContainer {
+    max-width: 250px;
+    padding-inline: 16px;
+
+    input {
+      padding: 12px;
+    }
+  }
+
+  .filterContainer {
+    padding: 12px 18px;
+  }
+
+  .filterCrossIcon {
+    top: 37px;
   }
 }
 
@@ -90,8 +282,39 @@ a {
   header {
     display: block;
     text-align: center;
+    padding-inline: 24px !important;
   }
+
+  main {
+    padding-inline: 24px;
+  }
+
   .colorMode {
     padding: 0px 0px 16px;
+  }
+}
+
+.motivationQuote {
+  font-weight: 500;
+  text-align: center;
+}
+
+.madeWith {
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.rotating {
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
