@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Countries Details</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src = 'country.js' defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Countries Details</title>
+  <link rel="icon" href="./Images/Globe File.svg" type="image/x-icon">
+  <link rel="stylesheet" href="country.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src='country.js' defer></script>
 </head>
+
 <body>
-    
+  <header>
+    <h2 class="heading"><img src="./Images/Globe File.svg" class="rotating"/>Anywhere around the world</h2>
+    <div class="colorMode">
+      <i class=" fa-solid fa-moon"></i><span class="modeIcon">DarkMode</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="backContainer">
+      <span class="backButton">
+        <i class="fa-solid fa-arrow-left"></i><span class="backText">Back</span>
+      </span>
+    </div>
+
+    <div class="countryDetails">
+    </div>
+  </main>
 </body>
+
 </html>
